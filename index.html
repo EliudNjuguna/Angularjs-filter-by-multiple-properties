@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angularjs filter by multiple properties</title>
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="scripts/angular.js"></script>
+	<script src="scripts/Scripts.js"></script>
+</head>
+<body ng-app="myModule">
+	<div ng-controller="myController">
+	<!--When you want to search from a specific column ,you specify what column on the ng-model you want to search eg searchText.city ie this will filter only through the city column-->
+
+	
+	<input type="text" placeholder="Search city & name" ng-model="searchText">
+	
+	<br>
+	<br>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Gender</th>
+					<th>Salary</th>
+					<th>City</th>
+				</tr>
+			</thead>
+
+			<tbody>
+			
+				<tr ng-repeat="employee in employees | filter:search">
+
+				
+
+					<td>{{employee.name}}</td>
+					<td>{{employee.gender}} </td>
+					<td>{{employee.salary}} </td>
+					<td>{{employee.city}} </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
